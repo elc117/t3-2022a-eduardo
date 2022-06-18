@@ -59,5 +59,4 @@
 	 (notes (normalize (raise n song))
 	 	note-table))
 	(t "Sequência inconsistente de notas.")))
-
-A C E D C B A-SHARP E B G-SHARP A
+	
