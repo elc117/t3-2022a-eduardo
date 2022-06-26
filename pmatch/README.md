@@ -6,3 +6,5 @@ Quando o parâmetro PATTERN for uma variável, a função `match-variable` será
 Se PATTERN for igual a INPUT, retornamos a lista de BINDINGS, pois sabemos que ocorre matching no restante de INPUT.
 
 Se tanto PATTERN quanto INPUT forem listas não nulas, chamamos `pat-match` com o tail de PATTERN e INPUT, usando como BINDINGS o retorno de `(pat-match (first pattern) (first input))`.
+# Referências
+[Capítulo 5 de Paradigms of Artificial Intelligence Programming](https://github.com/norvig/paip-lisp/blob/main/docs/chapter5.md)
