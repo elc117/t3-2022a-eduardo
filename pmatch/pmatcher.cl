@@ -42,7 +42,9 @@
         (t fail)))
 
 (defun match-variable (var input bindings)
-  "Does VAR match input? Uses (or updates) and returns bindings."
+  "Verifica se há matching entre INPUT e VAR.
+  Se VAR não estiver em BINDINGS, adicionamos VAR à lista.
+  Se estiver, vemos se INPUT é igual ao valor correspondente em BINDINGS."
   (let ((binding (get-binding var bindings)))
     (cond ((not binding) (extend-bindings var input bindings))
           ((equal input (binding-val binding)) bindings)
