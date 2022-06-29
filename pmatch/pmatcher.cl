@@ -28,6 +28,15 @@
   Essa adição ocorre à medida que ocorrer matching."
   (cons (cons var val) bindings))
 
+(defun match-variable (var input bindings)
+  "Verifica se há matching entre INPUT e VAR.
+  Se VAR não estiver em BINDINGS, adicionamos VAR à lista.
+  Se estiver, vemos se INPUT é igual ao valor correspondente em BINDINGS."
+  (let ((binding (get-binding var bindings)))
+    (cond ((not binding) (extend-bindings var input bindings))
+          ((equal input (binding-val binding)) bindings)
+          (t fail))))
+
 (defun pat-match (pattern input &optional (bindings no-bindings))
   "Retorna BINDINGS, uma lista que contém pares (variável . valor).
   Caso o matching falhe, retorna FAIL."
@@ -40,12 +49,3 @@
                     (pat-match (first pattern) (first input)
                                bindings)))
         (t fail)))
-
-(defun match-variable (var input bindings)
-  "Verifica se há matching entre INPUT e VAR.
-  Se VAR não estiver em BINDINGS, adicionamos VAR à lista.
-  Se estiver, vemos se INPUT é igual ao valor correspondente em BINDINGS."
-  (let ((binding (get-binding var bindings)))
-    (cond ((not binding) (extend-bindings var input bindings))
-          ((equal input (binding-val binding)) bindings)
-          (t fail))))

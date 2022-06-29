@@ -13,5 +13,18 @@ As condições que guiam a execução de `pat-match` são as seguintes:
 
 4. Se tanto PATTERN quanto INPUT forem listas não nulas, chamamos `pat-match` recursivamente com o tail de PATTERN e INPUT, usando como BINDINGS o retorno de `pat-match` executado até o momento.
 
+# Como executar o código
+É possível usar o interpretador online [JSCL](https://jscl-project.github.io/), mas creio que só funcione executando uma função por vez. Além disso, pode-se instalar um interpretador de CL, como o [SBCL](http://www.sbcl.org/), iniciá-lo com `sbcl` e executar o código com `(load "pmatcher.cl")`.
+
+Para testar o `pat-match`, deve-se passar o PATTERN e o INPUT em formas de lista. As variáveis devem começar com `?`.
+```
+> (pat-match '(?x like ?y) '(i like programming))
+((?Y . PROGRAMMING) (?X . I) (T . T))
+```
+
+
+
+
+
 # Referências
 [Capítulo 5 de Paradigms of Artificial Intelligence Programming](https://github.com/norvig/paip-lisp/blob/main/docs/chapter5.md)
