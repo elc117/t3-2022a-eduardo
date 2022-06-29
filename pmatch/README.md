@@ -7,7 +7,7 @@ As condições que guiam a execução de `pat-match` são as seguintes:
 
 1. Se BINDINGS for FAIL, retornamos FAIL, pois sabemos que em algum momento da execução não houve *matching*.
 
-2. Se o parâmetro PATTERN for uma variável, a função `match-variable` será chamada, a fim de verificar se essa variável já está na lista BINDINGS. Caso não esteja, adicionamo-la a BINDINGS; caso esteja, verificamos se o valor correspondente a essa variável em BINDINGS é o mesmo valor de INPUT, pois uma mesma variável que ocorra várias vezes, deve ter o mesmo valor em cada ocorrência.
+2. Se o parâmetro PATTERN for uma variável, a função `match-variable` será chamada, a fim de verificar se essa variável já está na lista BINDINGS. Caso não esteja, adicionamo-la a BINDINGS; caso esteja, verificamos se o valor correspondente a essa variável em BINDINGS é o mesmo valor de INPUT, pois uma mesma variável que ocorra várias vezes, deve ter o mesmo valor em cada ocorrência. Se o valor não for o mesmo, então retornamos FAIL, e não há *matching*.
 
 3. Se PATTERN for igual a INPUT, retornamos a lista de BINDINGS, pois sabemos que ocorre *matching* no restante de INPUT.
 
