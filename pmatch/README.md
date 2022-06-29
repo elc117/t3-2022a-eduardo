@@ -1,5 +1,5 @@
 # Pattern Matcher
-Essa versão do *pattern-matcher* é a versão implementada até a seção 5.2 do PAIP. Ela não funciona com *segment variables*, isto é, só pode haver *matching* entre uma variável e uma única palavra.
+Essa versão do *pattern-matcher* é a versão implementada até a seção 5.2 do [PAIP](https://github.com/norvig/paip-lisp). Ela não funciona com *segment variables*, isto é, só pode haver *matching* entre uma variável e uma única palavra.
 
 A função `pat-match` retorna a lista de BINDINGS, que é a lista que contém os pares `(variável . valor)` gerados à medida que houve *matching*. Essa lista poderá ser usada para gerar a resposta correspondente ao padrão com o qual houve *matching*. Se, em algum momento, o *matching* falhar, o valor retornado será FAIL.
 
